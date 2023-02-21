@@ -1,0 +1,61 @@
+<html>
+<head>
+  <title> Form test page</title>
+  <script type="text/javascript">
+  window.addEventListener("load", function() {
+  const form = document.getElementById('myform');
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const action = e.target.action;
+    fetch(action, {
+      method: 'POST',
+      body: data,
+    })
+    .then(() => {
+      alert("You've subscribed — check your inbox shortly for a message!");
+    })
+  })
+ });
+</script>
+</head>
+
+  <style>
+  form {
+    background-color:  #075d2a;
+    display:flex;
+    width: fit-content;
+  
+  }
+  
+  form input {
+    padding: 10px 20px;
+    height: 47px;
+    weight: 400px;
+    font-size: 16px
+  }
+  form button {
+    background: #61b752;
+   border: none;
+   outline: none;
+    height: 70px;
+    weight: 180px;
+    cursor: pointer;
+    text-align: center
+   
+  }
+    
+  </style>
+  
+    <form 
+    
+      method="POST" 
+      action="https://script.google.com/macros/s/AKfycbyqyrV-O_oNQdfXl0Vc8NUAv3VACafenFm3evathUZP1mBOTClhFNRAqhcDDb1LEFdDJg/exec"
+      id = "myform"
+    >
+      <input name="Email" placeholder= "           Email Address" type="email">
+      
+      <button type="submit">Subscribe!</button>
+  
+    </form>
+    </html>
